@@ -1,0 +1,85 @@
+.image {
+    cursor: no-drop;
+    transition: all 0.6s ease;
+    width: 250px;
+    border-radius: 25px;
+}
+
+.imageContainer {
+    position: relative;
+}
+
+.imageContainer:hover .image {
+    filter: brightness(70%);
+    filter: blur(80%);
+}
+
+.imageContainer:hover .imageText {
+    background-color: #f0f0f0;
+    width: 180px;
+    border-radius: 10px;
+    height: 25px;
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+    filter: brightness(100%);
+}
+
+.imageContainer:hover .buttonSave {
+    display: block;
+    text-align: center;
+    padding: 10px 12px;
+    position: absolute;
+    top: 10px;
+    right: 40px;
+    font-size: 16px;
+    background-color: #ad081b;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    outline: none;
+    z-index: 10;
+}
+
+.buttonSave {
+    display: none;
+}
+
+.imageText {
+    display: none;
+}
+
+.imageText p {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.imageContainer:hover .avatar {
+    /* width: 50px;
+    height: 50px;
+    border-radius: 50%; */
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+}
+
+.avatar {
+    display: none;
+}
+
+.avatar img {
+    object-fit: cover;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    filter: brightness(100%);
+}

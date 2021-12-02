@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { SearchBar, ImageList } from "./Components";
 
 function App() {
+  const [imageList, setImageList] = React.useState([]);
+  const [isSearched, setIsSearched] = React.useState(false);
+  const onSearchImage = (imageList) => {
+    setIsSearched(true);
+    setImageList(imageList);
+  };
+  const numberOfImages = imageList.length;
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App-body">
+      <SearchBar isCenter={true} onSearchImage={onSearchImage} />
+      {isSearched && (
+        <div style={{ paddingTop: "20px", paddingBottom: "20px" }}>
+          {numberOfImages === 0
+            ? "No Result"
+            : `Found ${numberOfImages} results`}
+        </div>
+      )}
+      <ImageList images={imageList} />
     </div>
   );
 }
